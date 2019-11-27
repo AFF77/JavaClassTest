@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Pizza">
+  <ClassDiagramComponents>
+    <Class name="Menu" package="" visibility="public" xPosition="244.0" yPosition="39.0">
+      <Fields>
+        <Field name="pizza" type="List&lt;Pizza&gt;" visibility="private"/>
+        <Field name="drinks" type="List&lt;Drinks&gt;" visibility="private"/>
+        <Field name="sides" type="List&lt;Sides&gt;" visibility="private"/>
+        <Field name="pizza" type="Pizza" visibility="private"/>
+        <Field name="drinks" type="Drinks" visibility="private"/>
+        <Field name="sides" type="Sides" visibility="private"/>
+        <Field name="shoppingCart" type="ShoppingCart" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ShoppingCart" package="" visibility="public" xPosition="40.0" yPosition="59.0">
+      <Fields>
+        <Field name="price" type="double" visibility="private"/>
+        <Field name="cart" type="List&lt;cart&gt;" visibility="private"/>
+        <Field name="payment" type="Payment" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Toppings" package="" visibility="public" xPosition="244.0" yPosition="500.0">
+      <Fields>
+        <Field name="toppingName" type="String" visibility="private"/>
+        <Field name="toppingPrice" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Pizza" package="" visibility="public" xPosition="244.0" yPosition="290.0">
+      <Fields>
+        <Field name="pizzaName" type="String" visibility="private"/>
+        <Field name="pizzaPrice" type="int" visibility="private"/>
+        <Field name="toppings" type="Toppings" visibility="private"/>
+        <Field name="type" type="Type" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Drinks" package="" visibility="public" xPosition="533.0" yPosition="189.0">
+      <Fields>
+        <Field name="drinkName" type="String" visibility="private"/>
+        <Field name="drinkPrice" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Sides" package="" visibility="public" xPosition="533.0" yPosition="39.0">
+      <Fields>
+        <Field name="sidesName" type="String" visibility="private"/>
+        <Field name="sidesPrice" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Payment" package="" visibility="public" xPosition="40.0" yPosition="232.0">
+      <Fields>
+        <Field name="order" type="ShoppingCart" visibility="private"/>
+        <Field name="order" type="Order" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Type" package="" visibility="public" xPosition="533.0" yPosition="345.0">
+      <Fields>
+        <Field name="pizzaType" type="String" visibility="private"/>
+        <Field name="price" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Order" package="" visibility="public" xPosition="40.0" yPosition="404.0">
+      <Fields>
+        <Field name="orderNumber" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="gives" source="Payment" target="Order" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="Pizza" target="Toppings" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="has" source="Menu" target="Pizza" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="has" source="Menu" target="Drinks" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="has" source="Menu" target="ShoppingCart" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="has" source="Menu" target="Sides" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="has" source="Pizza" target="Type" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="has" source="ShoppingCart" target="Payment" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
